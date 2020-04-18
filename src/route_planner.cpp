@@ -110,10 +110,11 @@ void RoutePlanner::AStarSearch() {
     RouteModel::Node *current_node = nullptr;
     // TODO: Implement your solution here.
     open_list.emplace_back(this->start_node);
+  this->start_node->visited=true;
     while (!open_list.empty())
     {
         current_node = NextNode();
-        if (current_node==this->end_node)
+        if (current_node == end_node)
         {
             m_Model.path = ConstructFinalPath(current_node);
             break;
